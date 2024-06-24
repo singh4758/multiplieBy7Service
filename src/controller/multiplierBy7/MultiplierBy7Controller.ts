@@ -18,7 +18,6 @@ export class MultiplierBy7Controller {
   
       res.send();
     } catch(e) {
-      console.log('aaaaa', e);
       if(e === 'All files already filled') {
         res.status(406).json({ message: "All files already filled" })
         res.send();

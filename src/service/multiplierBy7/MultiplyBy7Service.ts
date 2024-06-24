@@ -29,7 +29,7 @@ export class MultiplierBy7Service implements IMultiplierBy7Service {
       fileName = 'D.txt';
     }
 
-    const data = JSON.stringify(number * 7) + " ";
+    const data = JSON.stringify(number) + " ";
 
     return this.fileHandler.appendWrite(path.join(this.filePath, fileName), data)
   }
@@ -40,7 +40,6 @@ export class MultiplierBy7Service implements IMultiplierBy7Service {
 
     for(let file of files) {
       const data = await this.fileHandler.readFile(path.join(this.filePath, file));
-      console.log('aaaaaa', data.toString().split(" "));
       
       const arrayOfNumber = data.toString().split(" ").reduce((numberStorage: Array<number>, numberString) => {
         if(numberString === " " || numberString === "" || Number.isNaN(Number(numberString))) {
